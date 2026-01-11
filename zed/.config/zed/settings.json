@@ -14,19 +14,19 @@
 			"args": [],
 			"projects": [
 				{
-					"paths": ["/home/cgit/repositories/cgit-docker"]
+					"paths": ["/home/cgit/repositories/cgit-docker"],
 				},
 				{
-					"paths": ["/home/jellyfin"]
-				}
-			]
+					"paths": ["/home/jellyfin"],
+				},
+			],
 		},
 		{
 			"host": "vaapukka",
 			"username": "joona",
 			"args": [],
-			"projects": []
-		}
+			"projects": [],
+		},
 	],
 	"icon_theme": "Colored Zed Icons Theme Dark",
 	"base_keymap": "VSCode",
@@ -40,12 +40,12 @@
 	"autosave": "on_focus_change",
 	"theme": {
 		"mode": "dark",
-		"light": "Solarized Light",
-		"dark": "Tokyo Night"
+		"light": "Tokyo Night Light",
+		"dark": "Gruvbox Material Dark Hard",
 	},
 	"languages": {
 		"Python": {
-			"language_servers": ["pyright"]
-		}
-	}
+			"language_servers": ["pyright"],
+		},
+	},
 }

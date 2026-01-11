@@ -1,62 +1,62 @@
 {
-  "layer": "top",
-  "modules-left": [
-    "sway/workspaces",
-    "sway/mode",
-    "sway/window"
-  ],
-  "modules-center": [
-    "clock"
-  ],
-  "modules-right": [
-    "network",
-    "pulseaudio",
-    "backlight",
-    "battery"
-  ],
-  "sway/window": {
-    "tooltip": false,
-    "max-length": 50
-  },
-  "network": {
-    "tooltip": false,
-    "format": "{ifname}",
-    "format-wifi": "{essid} ({signalStrength}%) ",
-    "format-ethernet": "{ipaddr}/{cidr} 󰊗",
-    "format-disconnected": "Disconnected"
-  },
-  "pulseaudio": {
-    "tooltip": false,
-    "format": "{desc} {volume}% {icon}",
-    "format-muted": "{desc} 󰝟",
-    "format-icons": [
-      "󰕿",
-      "󰖀",
-      "󰕾"
-    ]
-  },
-  "backlight": {
-    "tooltip": false,
-    "format": "{percent}% {icon}",
-    "format-icons": [
-      "󰃜",
-      "󰃛",
-      "󰃚"
-    ]
-  },
-  "battery": {
-    "tooltip": false,
-    "format": "{capacity}% {icon}",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
-    ]
-  },
-  "clock": {
-    "tooltip": false,
-    "format": "  {:%H:%M %d.%m}"
-  }
+	"layer": "top",
+	"modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
+	"modules-center": ["clock"],
+	"modules-right": [
+		"tray",
+		"idle_inhibitor",
+		"network",
+		"pulseaudio",
+		"backlight",
+		"battery",
+	],
+	"sway/window": {
+		"tooltip": false,
+		"max-length": 50,
+	},
+	"idle_inhibitor": {
+		"format": "{icon} ",
+		"format-icons": {
+			"activated": "",
+			"deactivated": "",
+		},
+	},
+	"network": {
+		"tooltip": false,
+		"format": "{ifname}",
+		"format-wifi": "  {essid}",
+		"format-ethernet": "  eth connected",
+		"format-disconnected": "disconnected",
+	},
+	"pulseaudio": {
+		"tooltip": false,
+		"format": "{icon}  {volume}%",
+		"format-muted": "  {volume}%",
+		"format-icons": ["", "", ""],
+	},
+	"backlight": {
+		"tooltip": false,
+		"format": "{icon}  {percent}%",
+		"format-icons": ["󰃜", "󰃛", "󰃚"],
+	},
+	"battery": {
+		"tooltip": false,
+		"design-capacity": true,
+
+		"states": {
+			"warning": 30,
+			"critical": 10,
+		},
+
+		"format": "{icon} {capacity}%",
+		"format-full": "󰁹 FULL",
+		"format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂"],
+	},
+	"clock": {
+		"tooltip": false,
+		"format": " {:%H:%M   %d.%m}",
+	},
+	"tray": {
+		"spacing": 8,
+	},
 }

@@ -19,33 +19,32 @@ set $right l
 set $term alacritty
 # Your preferred application launcher
 #set $menu wmenu-run
-set $menu wofi --show=drun
+#set $menu wofi --show=drun
+set $menu tofi-drun
 
 exec wlsunset -t 4000 -T 6500 -s 20:00 -S 6:00 -d 1800
-#exec /usr/bin/lxqt-policykit-agent
-
-for_window [app_id=lxqt-policykit-agent] floating enable
-
-exec_always {
-  #gsettings set org.gnome.desktop.interface gtk-theme "adw-gtk3-dark"
-  gsettings set org.gnome.desktop.interface gtk-theme "Tokyonight-Dark"
-  gsettings set org.gnome.desktop.interface icon-theme "Tokyonight-Dark"
-}
+exec mate-polkit
+exec nm-applet
+exec blueman-applet
 
 # Other preferred programs
 set $browser firefox
-set $editor zeditor
+set $editor zed
 set $files nemo
-set $screenshot grim -g "$(slurp)"
+set $screenshot grim -g "$(slurp)" - | swappy -f -
+
+# This is needed to change the cursor theme
+seat seat0 xcursor_theme Bibata-Modern-Classic 24
 
 ### Output configuration
 #
-output * bg /home/joona/dotfiles/wallpapers/sekiro_wallpaper.jpg fill
+#exec_always swaybg -m fill -i ~/dotfiles/wallpapers/samurai_jäbä_wallpaper.jpg
+exec_always swaybg -m fill -i ~/dotfiles/wallpapers/gruvbox_astro.jpg
 #
 # Example configuration:
 #
-output eDP-1 resolution 1920x1080 position 0,0
-output HDMI-A-1 resolution 1920x1080 position 1920,0
+output eDP-1 resolution 1920x1080 position 1920,0
+output HDMI-A-1 resolution 1920x1080 position 0,0
 
 bindsym $mod+greater move workspace to output right
 bindsym $mod+less move workspace to output left
@@ -57,11 +56,11 @@ bindsym $mod+less move workspace to output left
 #
 # Example configuration:
 #
-# exec swayidle -w \
-# 	timeout 300 'swaylock -f -c 000000' \
-# 	timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-# 	before-sleep 'swaylock -f -c 000000'
-#
+exec swayidle -w \
+	timeout 300 'swaylock -f -c 000000' \
+ 	timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+ 	before-sleep 'swaylock -f -c 000000'
+
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -114,8 +113,8 @@ floating_modifier $mod normal
 bindsym $mod+Shift+c reload
 
 # Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-#bindsym $mod+Shift+e exec echo "poweroff\nreboot\nswaymsg exit" | wofi --show=dmenu | sh
+#bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Shift+e exec $HOME/.config/sway/sysmenu.sh
 #
 # Moving around:
 #
@@ -242,23 +241,19 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 # Special key to take a screenshot with grim
 bindsym Print exec grim
 
-default_border none
-focus_follows_mouse always
+default_border pixel 2
+gaps inner 4
 
-# Tokyo Night Colors
+# Gruvbox Colors
 set {
-	$background #1a1b26
-	$foreground #c0caf5
+	$foreground #ebdbb2
+	$background #1d2021
 
-	$selection #283457
-
-	$blue #7aa2f7
-	$white #a9b1d6
-	$black #15161e
-	$foreground #c0caf5
+	$white #a89984
+	$black #1d2021
 }
 
-client.focused $selection $selection $foreground $selection
+client.focused $white $white $foreground $white
 client.unfocused $black $black $foreground
 
 bar swaybar_command waybar
