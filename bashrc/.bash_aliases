@@ -1,2 +1,2 @@
-alias cdfzf="cd \$(fzf | find . -type d)"
+alias cdfzf="cd \$(find . -type d | fzf)"
 alias python="python3"

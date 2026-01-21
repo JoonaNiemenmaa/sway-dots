@@ -113,5 +113,5 @@ if ! shopt -oq posix; then
 fi
 
 PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null)'; PS1='\[\e[91m\]${PS1_CMD1}\[\e[0m\] \[\e[94m\]\w\[\e[0m\] \[\e[93m\]>\[\e[0m\] '
-export EDITOR="helix"
+export EDITOR="vi"
 
