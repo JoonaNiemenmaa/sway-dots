@@ -38,7 +38,7 @@
 	},
 	"backlight": {
 		"tooltip": false,
-		"format": "BRI  {percent}%"
+		"format": "BRI {percent}%"
 	},
 	"battery": {
 		"tooltip": false,
