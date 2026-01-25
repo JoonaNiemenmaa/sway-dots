@@ -24,9 +24,9 @@
 * {
 	border: none;
 	border-radius: 0;
-	font-family: BlexMono Nerd Font;
+	font-family: JetBrains Mono Nerd Font;
 	font-size: 14px;
-	min-height: 30px;
+	min-height: 24px;
 }
 
 window#waybar {
@@ -35,7 +35,6 @@ window#waybar {
 
 tooltip {
 	background: @bg;
-	border: 1px solid @bright_red;
 }
 
 tooltip label {
@@ -44,18 +43,19 @@ tooltip label {
 }
 
 #workspaces button {
-	color: @fg;
-	padding: 0 5px;
+	color: @bright_black;
+	padding: 0 0;
+	margin: 0;
+
 	background: transparent;
-	border-bottom: 2px solid transparent;
 }
 
 #workspaces button.focused {
-	border-bottom: 2px solid @fg;
+	color: @fg;
 }
 
 #tray {
-	margin: 0 4px;
+	margin: 0px 8px;
 }
 
 #idle_inhibitor,
@@ -65,58 +65,47 @@ tooltip label {
 #pulseaudio,
 #backlight,
 #network {
-	padding: 0px 5px;
 	margin: 0px 8px;
 }
 
 #idle_inhibitor.deactivated {
 	color: @bright_black;
-	border-bottom: solid @bright_black 2px;
 }
 
 #idle_inhibitor.activated {
 	color: @bright_white;
-	border-bottom: solid @bright_white 2px;
 }
 
 #mode {
 	color: @fg;
 	background: @white;
-	border-bottom: 2px solid @fg;
 }
 
 #clock {
 	color: @blue;
-	border-bottom: 2px solid @blue;
 }
 
 #network {
 	color: @bright_blue;
-	border-bottom: 2px solid @bright_blue;
 }
 
 #network.disconnected {
 	color: @red;
-	border-bottom: 2px solid @red;
 }
 
 #pulseaudio {
 	color: @yellow;
-	border-bottom: 2px solid @yellow;
 }
 
 #backlight {
 	color: @bright_white;
-	border-bottom: 2px solid @bright_white;
 }
 
 #battery {
 	color: @bright_yellow;
-	border-bottom: 2px solid @bright_yellow;
 }
 
 #battery.charging,
 #battery.full {
 	color: @bright_green;
-	border-bottom: 2px solid @bright_green;
 }

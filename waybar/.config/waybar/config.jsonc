@@ -1,43 +1,44 @@
 {
 	"layer": "top",
-	"modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
-	"modules-center": ["clock"],
+	"modules-left": [
+		"sway/workspaces", 
+		"sway/mode" 
+	],
+	"modules-center": [
+		"sway/window"
+	],
 	"modules-right": [
 		"tray",
-		"idle_inhibitor",
-		"network",
 		"pulseaudio",
 		"backlight",
 		"battery",
+		"clock",
+		"idle_inhibitor"
 	],
+	"sway/workspaces": {
+		"disable-scroll": true
+	},
 	"sway/window": {
 		"tooltip": false,
-		"max-length": 50,
+		"icon": true,
+		"icon-size": 16,
+		"max-length": 50
 	},
 	"idle_inhibitor": {
 		"format": "{icon} ",
 		"format-icons": {
 			"activated": "",
-			"deactivated": "",
-		},
-	},
-	"network": {
-		"tooltip": false,
-		"format": "{ifname}",
-		"format-wifi": "  {essid}",
-		"format-ethernet": "  eth connected",
-		"format-disconnected": "disconnected",
+			"deactivated": ""
+		}
 	},
 	"pulseaudio": {
 		"tooltip": false,
-		"format": "{icon}  {volume}%",
-		"format-muted": "  {volume}%",
-		"format-icons": ["", "", ""],
+		"format": "VOL {volume}%",
+		"format-muted": "VOL {volume}%"
 	},
 	"backlight": {
 		"tooltip": false,
-		"format": "{icon}  {percent}%",
-		"format-icons": ["󰃜", "󰃛", "󰃚"],
+		"format": "BRI  {percent}%"
 	},
 	"battery": {
 		"tooltip": false,
@@ -45,18 +46,18 @@
 
 		"states": {
 			"warning": 30,
-			"critical": 10,
+			"critical": 10
 		},
 
-		"format": "{icon} {capacity}%",
-		"format-full": "󰁹 FULL",
-		"format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂"],
+		"format": "BAT {capacity}%",
+		"format-full": "BAT FULL"
 	},
 	"clock": {
-		"tooltip": false,
-		"format": " {:%H:%M   %d.%m}",
+		"tooltip": true,
+		"format": "{:%A %H:%M}",
+		"tooltip-format": "{:%A %H:%M %d.%m.%Y}"
 	},
 	"tray": {
-		"spacing": 8,
-	},
+		"spacing": 8
+	}
 }

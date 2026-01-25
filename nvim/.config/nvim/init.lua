@@ -16,7 +16,7 @@ vim.opt.clipboard = "unnamedplus"	-- Synchronizes the system clipboard with neov
 vim.opt.title = true				-- Display extra information in window title
 vim.opt.termguicolors = true		-- Increases the color range available for the terminal
 
-vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme slate")
 
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
