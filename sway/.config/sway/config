@@ -247,7 +247,7 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 bindsym Print exec grim
 
 default_border pixel 2
-gaps inner 4
+#gaps inner 4
 
 font JetBrains Mono Nerd Font 12
 
