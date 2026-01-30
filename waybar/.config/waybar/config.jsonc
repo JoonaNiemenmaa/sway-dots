@@ -9,20 +9,20 @@
 	],
 	"modules-right": [
 		"tray",
+		"idle_inhibitor",
 		"pulseaudio",
 		"backlight",
 		"battery",
-		"clock",
-		"idle_inhibitor"
+		"clock"
 	],
 	"sway/workspaces": {
 		"disable-scroll": true
 	},
 	"sway/window": {
-		"tooltip": false,
+		"tooltip": true,
 		"icon": true,
 		"icon-size": 16,
-		"max-length": 50
+		"max-length": 80
 	},
 	"idle_inhibitor": {
 		"format": "{icon} ",
@@ -32,16 +32,18 @@
 		}
 	},
 	"pulseaudio": {
-		"tooltip": false,
-		"format": "VOL {volume}%",
-		"format-muted": "VOL {volume}%"
+		"tooltip": true,
+		"format": "{icon} {volume}%",
+		"format-muted": "  {volume}%",
+		"format-icons": ["", "", ""]
 	},
 	"backlight": {
 		"tooltip": false,
-		"format": "BRI {percent}%"
+		"format": "{icon} {percent}%",
+		"format-icons": ["󰃜", "󰃛", "󰃚"]
 	},
 	"battery": {
-		"tooltip": false,
+		"tooltip": true,
 		"design-capacity": true,
 
 		"states": {
@@ -49,12 +51,14 @@
 			"critical": 10
 		},
 
-		"format": "BAT {capacity}%",
-		"format-full": "BAT FULL"
+		"format": "{icon} {capacity}%",
+		"format-full": "{icon} FULL",
+
+		"format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
 	},
 	"clock": {
 		"tooltip": true,
-		"format": "{:%A %H:%M}",
+		"format": " {:%H:%M %A}",
 		"tooltip-format": "{:%A %H:%M %d.%m.%Y}"
 	},
 	"tray": {
