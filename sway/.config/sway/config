@@ -33,6 +33,8 @@ exec_always {
 
 	gsettings set org.gnome.desktop.interface font-name "Cantarell"
 	gsettings set org.gnome.desktop.interface monospace-font-name "JetBrains Mono Nerd Font"
+
+	gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 }
 
 
