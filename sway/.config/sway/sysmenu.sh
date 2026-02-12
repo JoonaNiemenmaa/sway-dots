@@ -4,12 +4,12 @@ Poweroff
 Reboot
 Suspend
 Logout"
-action=$(echo "$options" | tofi --prompt-text "Select action:")
+action=$(echo "$options" | tofi --placeholder-text "select action")
 
 [ -z "$action" ] && exit
 
 confirm=$(echo "Yes
-No" | tofi --prompt-text "Confirm $action?")
+No" | tofi --placeholder-text "confirm $action?")
 
 if [ "$confirm" = "Yes" ]; then
     case "$action" in
