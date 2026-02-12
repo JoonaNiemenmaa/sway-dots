@@ -1,46 +1,41 @@
 {
 	"layer": "top",
-	"modules-left": [
-		"sway/workspaces", 
-		"sway/mode" 
-	],
-	"modules-center": [
-		"sway/window"
-	],
+	"modules-left": ["sway/workspaces", "sway/mode"],
+	"modules-center": ["sway/window"],
 	"modules-right": [
 		"tray",
 		"idle_inhibitor",
 		"pulseaudio",
 		"backlight",
 		"battery",
-		"clock"
+		"clock",
 	],
 	"sway/workspaces": {
-		"disable-scroll": true
+		"disable-scroll": true,
 	},
 	"sway/window": {
 		"tooltip": true,
 		"icon": true,
 		"icon-size": 16,
-		"max-length": 80
+		"max-length": 80,
 	},
 	"idle_inhibitor": {
 		"format": "{icon} ",
 		"format-icons": {
 			"activated": "",
-			"deactivated": ""
-		}
+			"deactivated": "",
+		},
 	},
 	"pulseaudio": {
 		"tooltip": true,
-		"format": "{icon} {volume}%",
+		"format": "{icon}  {volume}%",
 		"format-muted": "  {volume}%",
-		"format-icons": ["", "", ""]
+		"format-icons": ["", ""],
 	},
 	"backlight": {
 		"tooltip": false,
 		"format": "{icon} {percent}%",
-		"format-icons": ["󰃜", "󰃛", "󰃚"]
+		"format-icons": ["󰃜", "󰃛", "󰃚"],
 	},
 	"battery": {
 		"tooltip": true,
@@ -48,20 +43,20 @@
 
 		"states": {
 			"warning": 30,
-			"critical": 10
+			"critical": 10,
 		},
 
 		"format": "{icon} {capacity}%",
 		"format-full": "{icon} FULL",
 
-		"format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+		"format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
 	},
 	"clock": {
 		"tooltip": true,
-		"format": " {:%H:%M %A}",
-		"tooltip-format": "{:%A %H:%M %d.%m.%Y}"
+		"format": "  {:%H:%M %A}",
+		"tooltip-format": "{:%A %H:%M %d.%m.%Y}",
 	},
 	"tray": {
-		"spacing": 8
-	}
+		"spacing": 8,
+	},
 }
