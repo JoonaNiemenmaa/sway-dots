@@ -28,8 +28,8 @@ exec blueman-applet
 seat seat0 xcursor_theme Bibata-Modern-Classic 24
 
 exec_always {
-	gsettings set org.gnome.desktop.interface gtk-theme "Gruvbox-B-MB-Dark"
-	gsettings set org.gnome.desktop.interface icon-theme "Gruvbox-Plus-Dark"
+	gsettings set org.gnome.desktop.interface gtk-theme "Tokyonight-B-MB-Dark"
+	gsettings set org.gnome.desktop.interface icon-theme "Tokyonight-Dark"
 
 	gsettings set org.gnome.desktop.interface font-name "Cantarell"
 	gsettings set org.gnome.desktop.interface monospace-font-name "JetBrains Mono Nerd Font"
@@ -40,7 +40,7 @@ exec_always {
 
 ### Output configuration
 
-exec_always swaybg -m fill -i ~/dotfiles/wallpapers/mountain_wallpaper.jpg
+exec_always swaybg -m fill -i ~/dotfiles/wallpapers/tokyonight.png
 
 output HDMI-A-1 {
 	resolution 1920x1080@144.013Hz
@@ -248,22 +248,17 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 # Special key to take a screenshot with grim
 bindsym Print exec grim
 
-default_border pixel 2
+default_border pixel 1
 #gaps inner 4
 
 font JetBrains Mono Nerd Font 12
 
-# Gruvbox Colors
-set {
-	$foreground #ebdbb2
-	$background #1d2021
+# Window decorations
 
-	$white #a89984
-	$black #1d2021
-}
-
-client.focused $white $white $foreground $white
-client.unfocused $black $black $foreground
+# Documentation describes these options like this
+# client.<class> <border> <background> <text> [<indicator> [<child_border>]]
+client.focused		#2ac3de		#2ac3de		#c0caf5		#f7768e
+client.unfocused	#414868		#414868		#c0caf5		#f7768e
 
 bar swaybar_command waybar
 
