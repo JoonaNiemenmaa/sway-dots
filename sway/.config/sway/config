@@ -35,12 +35,15 @@ exec_always {
 	gsettings set org.gnome.desktop.interface monospace-font-name "JetBrains Mono Nerd Font"
 
 	gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+
+	# This makes it so that nemo uses alacritty as the terminal
+	gsettings set org.cinnamon.desktop.default-applications.terminal exec $term
 }
 
 
 ### Output configuration
 
-exec_always swaybg -m fill -i ~/dotfiles/wallpapers/tokyonight.png
+exec_always swaybg -m fill -i ~/dotfiles/wallpapers/flower_wallpaper.png
 
 output HDMI-A-1 {
 	resolution 1920x1080@144.013Hz

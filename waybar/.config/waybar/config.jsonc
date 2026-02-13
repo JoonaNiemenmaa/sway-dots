@@ -47,7 +47,7 @@
 		},
 
 		"format": "{icon} {capacity}%",
-		"format-full": "{icon} FULL",
+		/*"format-full": "{icon} FULL",*/
 
 		"format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
 	},
