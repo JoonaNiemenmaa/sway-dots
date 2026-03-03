@@ -11,14 +11,15 @@ set $right l
 # Preferred programs
 set $term alacritty
 set $menu tofi-drun
-set $browser firefox
-set $editor zed
+set $browser flatpak run app.zen_browser.zen
+set $editor zeditor
 set $files nemo
 set $screenshot grim -g "$(slurp)" - | swappy -f -
+set $polkit_agent /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
 
 # Run background programs
 exec wlsunset -t 4000 -T 6500 -s 20:00 -S 6:00 -d 1800
-exec mate-polkit
+exec $polkit_agent
 exec nm-applet
 exec blueman-applet
 
@@ -45,15 +46,9 @@ exec_always {
 
 exec_always swaybg -m fill -i ~/dotfiles/wallpapers/flower_wallpaper.png
 
-output HDMI-A-1 {
-	resolution 1920x1080@144.013Hz
+output eDP-1 {
+	resolution 1920x1080@60.056Hz
 	position 0,0
-}
-
-output DP-3 {
-	resolution 1920x1080@180.003Hz
-	position 1920,0
-
 }
 
 bindsym $mod+greater move workspace to output right
@@ -105,6 +100,7 @@ bindsym $mod+f exec $files
 bindsym $mod+s exec $screenshot
 
 bindsym $mod+shift+x exec swaylock
+bindsym $mod+n exec swaync-client -t
 
 # Kill focused window
 bindsym $mod+Shift+q kill
@@ -251,10 +247,11 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 # Special key to take a screenshot with grim
 bindsym Print exec grim
 
+font JetBrains Mono Nerd Font 12
+
 default_border pixel 1
 #gaps inner 4
 
-font JetBrains Mono Nerd Font 12
 
 # Window decorations
 

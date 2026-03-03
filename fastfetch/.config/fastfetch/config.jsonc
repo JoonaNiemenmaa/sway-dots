@@ -13,7 +13,7 @@
 		"colors",
 	],
 	"logo": {
-		"source": "debian-linux_small",
+		"source": "arch_small",
 		"padding": {
 			"top": 1,
 			"left": 3,

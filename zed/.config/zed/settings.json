@@ -39,7 +39,7 @@
 	"vertical_scroll_margin": 999,
 	"autosave": "on_focus_change",
 	"theme": {
-		"mode": "dark",
+		"mode": "system",
 		"light": "Tokyo Night Light",
 		"dark": "Tokyo Night",
 	},
