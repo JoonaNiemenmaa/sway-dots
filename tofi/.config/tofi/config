@@ -13,7 +13,7 @@
 	# characters not in the chosen font will fail to render.
 	#
 	# Otherwise, fonts are interpreted in Pango format.
-	font = "/home/joona/.fonts/JetBrainsMonoNerdFont-Medium.ttf"
+	font = "/home/joona/.fonts/LilexNerdFont-Medium.ttf"
 
 	# Point size of text.
 	font-size = 14
