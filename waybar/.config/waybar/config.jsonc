@@ -1,62 +1,61 @@
 {
-	"layer": "top",
-	"modules-left": ["sway/workspaces", "sway/mode"],
-	"modules-center": ["sway/window"],
-	"modules-right": [
-		"tray",
-		"idle_inhibitor",
-		"pulseaudio",
-		"backlight",
-		"battery",
-		"clock"
-	],
-	"sway/workspaces": {
-		"disable-scroll": true
-	},
-	"sway/window": {
-		"tooltip": true,
-		"icon": true,
-		"icon-size": 16,
-		"max-length": 80
-	},
-	"idle_inhibitor": {
-		"format": "{icon} ",
-		"format-icons": {
-			"activated": "",
-			"deactivated": ""
-		}
-	},
-	"pulseaudio": {
-		"tooltip": true,
-		"format": "{icon}  {volume}%",
-		"format-muted": "  {volume}%",
-		"format-icons": ["", ""]
-	},
-	"backlight": {
-		"tooltip": false,
-		"format": "{icon} {percent}%",
-		"format-icons": ["󰃜", "󰃛", "󰃚"]
-	},
-	"battery": {
-		"tooltip": true,
-		"design-capacity": true,
+    "layer": "top",
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["clock"],
+    "modules-right": [
+        "tray",
+        "idle_inhibitor",
+        "pulseaudio",
+        "backlight",
+        "battery",
+    ],
+    "sway/workspaces": {
+        "disable-scroll": true,
+    },
+    /*"sway/window": {
+        "tooltip": true,
+        "icon": true,
+        "icon-size": 16,
+        "max-length": 80,
+    },*/
+    "idle_inhibitor": {
+        "format": "{icon} ",
+        "format-icons": {
+            "activated": "",
+            "deactivated": "",
+        },
+    },
+    "pulseaudio": {
+        "tooltip": true,
+        "format": "{icon}  {volume}%",
+        "format-muted": "  {volume}%",
+        "format-icons": ["", ""],
+    },
+    "backlight": {
+        "tooltip": false,
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃜", "󰃛", "󰃚"],
+    },
+    "battery": {
+        "tooltip": true,
+        "design-capacity": true,
 
-		"states": {
-			"warning": 30,
-			"critical": 10
-		},
+        "states": {
+            "warning": 30,
+            "critical": 10,
+        },
 
-		"format": "{icon} {capacity}%",
-		/*"format-full": "{icon} FULL",*/
+        "format": "{icon} {capacity}%",
+        /*"format-full": "{icon} FULL",*/
 
-		"format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
-	},
-	"clock": {
-		"tooltip": true,
-		"format": "  {:%H:%M %A}",
-		"tooltip-format": "{:%A %H:%M %d.%m.%Y}"
-	},
-	"tray": {
-		"spacing": 8
-	}
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    },
+    "clock": {
+        "tooltip": true,
+        "format": "  {:%H:%M %A}",
+        "tooltip-format": "{:%A %H:%M %d.%m.%Y}",
+    },
+    "tray": {
+        "spacing": 8,
+    },
 }

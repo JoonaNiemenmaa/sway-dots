@@ -18,7 +18,7 @@ set $screenshot grim -g "$(slurp)" - | swappy -f -
 set $polkit_agent /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
 
 # Run background programs
-exec wlsunset -t 4000 -T 6500 -s 20:00 -S 6:00 -d 1800
+exec gammastep
 exec $polkit_agent
 exec nm-applet
 exec blueman-applet
@@ -41,10 +41,9 @@ exec_always {
 	gsettings set org.cinnamon.desktop.default-applications.terminal exec $term
 }
 
-
 ### Output configuration
 
-exec_always swaybg -m fill -i ~/dotfiles/wallpapers/flower_wallpaper.png
+exec_always swaybg -m fill -i ~/dotfiles/wallpapers/snowytrees_wallpaper.jpg
 
 output eDP-1 {
 	resolution 1920x1080@60.056Hz

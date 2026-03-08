@@ -10,13 +10,13 @@
 		"de",
 		"wm",
 		"break",
-		"colors",
+		"colors"
 	],
 	"logo": {
 		"source": "arch_small",
 		"padding": {
 			"top": 1,
-			"left": 3,
-		},
-	},
+			"left": 3
+		}
+	}
 }

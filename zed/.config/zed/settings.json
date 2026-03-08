@@ -7,45 +7,63 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-	"ssh_connections": [
-		{
-			"host": "rocinante",
-			"username": "joona",
-			"args": [],
-			"projects": [
-				{
-					"paths": ["/home/cgit/repositories/cgit-docker"],
-				},
-				{
-					"paths": ["/home/jellyfin"],
-				},
-			],
-		},
-		{
-			"host": "vaapukka",
-			"username": "joona",
-			"args": [],
-			"projects": [],
-		},
-	],
-	"icon_theme": "Colored Zed Icons Theme Dark",
-	"base_keymap": "VSCode",
-	"vim_mode": true,
-	"ui_font_size": 18,
-	"buffer_font_size": 16,
-	"buffer_font_family": "BlexMono Nerd Font Mono",
-	"tab_size": 4,
-	"hard_tabs": true,
-	"vertical_scroll_margin": 999,
-	"autosave": "on_focus_change",
-	"theme": {
-		"mode": "system",
-		"light": "Tokyo Night Light",
-		"dark": "Tokyo Night",
-	},
-	"languages": {
-		"Python": {
-			"language_servers": ["pyright"],
-		},
-	},
+    "ssh_connections": [
+        {
+            "host": "rocinante",
+            "username": "joona",
+            "args": [],
+            "projects": [
+                {
+                    "paths": ["/home/cgit/repositories/cgit-docker"],
+                },
+                {
+                    "paths": ["/home/jellyfin"],
+                },
+                {
+                    "paths": ["/home/joona"],
+                },
+            ],
+        },
+        {
+            "host": "vaapukka",
+            "username": "joona",
+            "args": [],
+            "projects": [],
+        },
+        {
+            "host": "rocinante",
+            "args": [],
+            "projects": [],
+        },
+    ],
+    "icon_theme": "Colored Zed Icons Theme Dark",
+    "base_keymap": "VSCode",
+    "vim_mode": true,
+    "ui_font_size": 18,
+    "buffer_font_size": 18,
+    "buffer_font_family": "Lilex Nerd Font Mono",
+    "ui_font_family": "Cantarell",
+    "buffer_font_features": {
+        "calt": false, // Disable ligatures
+    },
+    "tab_size": 4,
+    "hard_tabs": false,
+    "vertical_scroll_margin": 999,
+    "autosave": "on_focus_change",
+    "theme": {
+        "mode": "system",
+        "light": "Tokyo Night Light",
+        "dark": "Tokyo Night",
+    },
+    "languages": {
+        "Python": {
+            "language_servers": ["pyright"],
+        },
+        "Make": {
+            "hard_tabs": true,
+        },
+    },
+    "file_types": {
+        "C": ["C", "H"],
+    },
 }

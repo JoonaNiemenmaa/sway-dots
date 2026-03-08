@@ -20,38 +20,56 @@
 @define-color bright_white 		#c0caf5;
 
 * {
-	border: none;
-	border-radius: 0;
-	font-family: JetBrains Mono Nerd Font;
-	font-size: 14px;
-	/*min-height: 26px;*/
+    border: none;
+    border-radius: 0;
+    font-family: Lilex Nerd Font;
+    font-size: 14px;
+    /*min-height: 26px;*/
 }
 
 window#waybar {
-	background: @bg;
+    background: @bg;
 }
 
+/*#window {
+    color: @blue;
+
+    margin: 4px 4px;
+    padding: 2px 6px;
+
+    border-radius: 4px;
+    border: 2 solid @blue;
+}*/
+
 tooltip {
-	background: @bg;
+    background: @bg;
+    border-radius: 4px;
+    border: 2 solid @fg;
 }
 
 tooltip label {
-	color: @fg;
-	padding: 0 8px;
+    color: @fg;
+    padding: 0 8px;
 }
 
+/*#workspaces {
+    border-radius: 4px;
+    margin: 2px 4px;
+    border: 2 solid @fg;
+    }*/
+
 #workspaces button {
-	color: @bright_black;
+    color: @bright_black;
 
-	padding: 0;
-	margin: 0;
+    padding: 0;
+    margin: 0;
 
-	background: transparent;
-	font-weight: bold;
+    background: transparent;
+    font-weight: bold;
 }
 
 #workspaces button.focused {
-	color: @fg;
+    color: @fg;
 }
 
 #tray,
@@ -61,47 +79,61 @@ tooltip label {
 #battery,
 #pulseaudio,
 #backlight {
-	font-weight: bold;
-	margin: 4px 4px;
-	padding: 2px 6px;
+    font-weight: 500;
+    margin: 4px 4px;
+    padding: 2px 6px;
 
-	border-radius: 4px;
-	color: @black;
+    border-radius: 4px;
+    background: @black;
 }
 
 #tray {
-	background: @black;
+    color: @blue;
+    border: 2 solid @blue;
 }
 
 #idle_inhibitor.deactivated {
-	background: @bright_black;
+    color: @bright_black;
+    border: 2 solid @bright_black;
 }
 
 #idle_inhibitor.activated {
-	background: @bright_white;
+    color: @bright_white;
+    border: 2 solid @bright_white;
 }
 
 #mode {
-	background: @white;
+    color: @white;
+    border: 2 solid @white;
 }
 
 #clock {
-	background: @blue;
+    color: @blue;
+    border: 2 solid @blue;
 }
 
 #pulseaudio {
-	background: @yellow;
+    color: @yellow;
+    border: 2 solid @yellow;
+}
+
+#pulseaudio.muted {
+    color: @red;
+    border: 2 solid @red;
 }
 
 #backlight {
-	background: @bright_white;
+    color: @bright_white;
+    border: 2 solid @bright_white;
 }
 
 #battery {
-	background: @cyan;
+    color: @cyan;
+    border: 2 solid @cyan;
 }
 
 #battery.charging,
 #battery.full {
-	background: @green;
+    color: @green;
+    border: 2 solid @green;
 }

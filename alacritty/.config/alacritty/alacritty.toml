@@ -1,9 +1,10 @@
 [font]
 size = 14
-normal = { family = "JetBrains Mono Nerd Font", style = "regular" }
+normal = { family = "Lilex Nerd Font", style = "medium" }
 
 [window]
-opacity=0.9
+opacity = 0.9
+#padding = { x = 4, y = 4 }
 
 [general]
 import = [
