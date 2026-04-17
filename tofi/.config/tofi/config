@@ -186,13 +186,13 @@
 	border-color = #7aa2f7
 
 	# Radius of window corners in pixels.
-	corner-radius = 8
+	corner-radius = 0
 
 	# Padding between borders and text. Can be pixels or a percentage.
-	padding-top = 8
-	padding-bottom = 8
-	padding-left = 8
-	padding-right = 8
+	padding-top = 12
+	padding-bottom = 12
+	padding-left = 12
+	padding-right = 12
 
 	# Whether to clip text drawing to be within the specified padding. This
 	# is mostly important for allowing text to be inset from the border,

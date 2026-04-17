@@ -1,28 +1,136 @@
-vim.opt.shiftwidth = 4				-- changes indentation length
-vim.opt.tabstop = 4					-- changes the length of tab
-vim.opt.fileencoding = "utf-8"		-- makes the file encoding utf-8 by default
-vim.opt.relativenumber = true		-- a setting for relative line numbers
-vim.opt.number = true				-- line numbers
-vim.opt.splitbelow = true			-- place any horizontal splits on the bottom of the screen
-vim.opt.splitright = true			-- same as above but for vertical splits
-vim.opt.wrap = false				-- always show lines as one long pötkylä
-vim.opt.undofile = true				-- allows nvim to create an 'undofile' which stores undo history so that it can persist through closing and reopening a file
-vim.opt.swapfile = false			-- disables the creation of swap-files
-vim.opt.timeoutlen = 500			-- this changes the timeout time of keymap comption (in milliseconds)
-vim.opt.scrolloff = 999				-- Changes it so that the cursor doesn't have to reach top/bottom of the page for scrolling to happen
-vim.opt.virtualedit = "block"		-- Makes empty cells selectable in VISUAL BLOCK mode.
-vim.opt.ignorecase = true			-- Pretty self explanatory
-vim.opt.clipboard = "unnamedplus"	-- Synchronizes the system clipboard with neovim's clipboard
-vim.opt.title = true				-- Display extra information in window title
-vim.opt.termguicolors = true		-- Increases the color range available for the terminal
+-- comment
+-- Set <space> as the leader key See `:h mapleader`
+-- NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
+vim.g.mapleader = ' '
+-- OPTIONS
+-- See `:h vim.o`
+-- NOTE: You can change these options as you wish!
+-- For more options, you can see `:h option-list`
+-- To see documentation for an option, you can use `:h 'optionname'`, for example `:h 'number'` (Note the single quotes)
 
-vim.cmd("colorscheme vim")
+vim.opt.shiftwidth = 4         -- changes indentation length
+vim.opt.tabstop = 4            -- changes the length of tab
+vim.opt.fileencoding = "utf-8" -- makes the file encoding utf-8 by default
+vim.opt.relativenumber = true  -- a setting for relative line numbers
+vim.opt.number = true          -- line numbers
+vim.opt.splitbelow = true      -- place any horizontal splits on the bottom of the screen
+vim.opt.splitright = true      -- same as above but for vertical splits
+vim.opt.wrap = false           -- always show lines as one long pötkylä
+vim.opt.undofile = true        -- allows nvim to create an 'undofile' which stores undo history so that it can persist through closing and reopening a file
+vim.opt.swapfile = false       -- disables the creation of swap-files
+-- vim.opt.timeoutlen = 500			-- this changes the timeout time of keymap comption (in milliseconds)
+vim.opt.scrolloff = 999        -- Changes it so that the cursor doesn't have to reach top/bottom of the page for scrolling to happen
+vim.opt.virtualedit = "block"  -- Makes empty cells selectable in VISUAL BLOCK mode.
+vim.opt.ignorecase = false     -- Pretty self explanatory
+vim.opt.title = true           -- Display extra information in window title
+vim.opt.termguicolors = true   -- Increases the color range available for the terminal
+vim.opt.wrapscan = false       -- searches wrap around the file
+vim.o.list = false             -- Show <tab> and trailing spaces.
 
-local opts = { noremap = true, silent = true }
-local keymap = vim.api.nvim_set_keymap
+-- If performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
+-- instead raise a dialog asking if you wish to save the current file(s). See `:h 'confirm'`
+vim.o.confirm = true
 
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
-keymap("n", "<leader>e", ":w<CR>:Explore<CR>", opts)
+-- KEYMAPS
+--
+-- See `:h vim.keymap.set()`, `:h mapping`, `:h keycodes`
+
+-- Use <Esc> to exit terminal mode
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+
+
+-- completion
+-- vim.keymap.set({ "n" }, "<leader>c", "<C-x><C-o>")
+
+vim.keymap.set({ "n" }, "<leader>t", ":60vsplit<CR>:terminal<CR>i")
+
+-- Map <A-j>, <A-k>, <A-h>, <A-l> to navigate between windows in any modes
+vim.keymap.set({ 't', 'i' }, '<A-h>', '<C-\\><C-n><C-w>h')
+vim.keymap.set({ 't', 'i' }, '<A-j>', '<C-\\><C-n><C-w>j')
+vim.keymap.set({ 't', 'i' }, '<A-k>', '<C-\\><C-n><C-w>k')
+vim.keymap.set({ 't', 'i' }, '<A-l>', '<C-\\><C-n><C-w>l')
+vim.keymap.set({ 'n' }, '<A-h>', '<C-w>h')
+vim.keymap.set({ 'n' }, '<A-j>', '<C-w>j')
+vim.keymap.set({ 'n' }, '<A-k>', '<C-w>k')
+vim.keymap.set({ 'n' }, '<A-l>', '<C-w>l')
+
+-- vim.keymap.set({ "n" }, "<leader>d", "vim.lsp.")
+
+-- AUTOCOMMANDS (EVENT HANDLERS)
+--
+-- See `:h lua-guide-autocommands`, `:h autocmd`, `:h nvim_create_autocmd()`
+
+-- Highlight when yanking (copying) text.
+-- Try it with `yap` in normal mode. See `:h vim.hl.on_yank()`
+vim.api.nvim_create_autocmd('TextYankPost', {
+	desc = 'Highlight when yanking (copying) text',
+	callback = function()
+		vim.hl.on_yank()
+	end,
+})
+
+-- Sync clipboard between OS and Neovim. Schedule the setting after `UIEnter` because it can
+-- increase startup-time. Remove this option if you want your OS clipboard to remain independent.
+-- See `:h 'clipboard'`
+vim.api.nvim_create_autocmd('UIEnter', {
+	callback = function()
+		vim.o.clipboard = 'unnamedplus'
+	end,
+})
+
+vim.api.nvim_create_autocmd('BufWrite', {
+	callback = function()
+		vim.lsp.buf.format()
+	end,
+})
+
+-- USER COMMANDS: DEFINE CUSTOM COMMANDS
+--
+-- See `:h nvim_create_user_command()` and `:h user-commands`
+
+-- Create a command `:GitBlameLine` that print the git blame for the current line
+vim.api.nvim_create_user_command('GitBlameLine', function()
+	local line_number = vim.fn.line('.') -- Get the current line number. See `:h line()`
+	local filename = vim.api.nvim_buf_get_name(0)
+	print(vim.system({ 'git', 'blame', '-L', line_number .. ',+1', filename }):wait().stdout)
+end, { desc = 'Print the git blame for the current line' })
+
+-- PLUGINS
+
+vim.pack.add({
+	-- colorschemes
+	"https://github.com/folke/tokyonight.nvim",
+	"https://github.com/rebelot/kanagawa.nvim",
+	"https://github.com/sainnhe/gruvbox-material",
+	"https://github.com/kdheepak/monochrome.nvim",
+	"https://github.com/vague-theme/vague.nvim",
+	"https://github.com/bluz71/vim-moonfly-colors",
+	"https://github.com/catppuccin/nvim",
+
+	"https://github.com/neovim/nvim-lspconfig",
+	"https://github.com/ibhagwan/fzf-lua",
+	-- "https://github.com/lewis6991/gitsigns.nvim", <-- git integration
+})
+
+require("fzf-lua")
+
+-- fzf-lua keybindings
+vim.keymap.set({ "n" }, "<leader>f", function() FzfLua.files() end)
+vim.keymap.set({ "n" }, "<leader>b", function() FzfLua.buffers() end)
+
+vim.cmd("colorscheme tokyonight-night")
+
+
+-- Enable LSPs
+
+vim.lsp.enable("ccls")
+vim.lsp.enable("zls")
+vim.lsp.enable("ts_ls")
+vim.lsp.enable("jsonls")
+vim.lsp.enable("html")
+
+vim.diagnostic.config({
+	virtual_text = true
+})
+

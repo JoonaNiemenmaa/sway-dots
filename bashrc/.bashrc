@@ -14,3 +14,4 @@ alias cdfzf="cd \$(find . -type d | fzf)"
 PS1='\[\e[32m\]\u@\h\[\e[0m\]:\[\e[34m\]\w\[\e[0m\]\\$ '
 
 EDITOR="nvim"
+#export PATH="/opt/nvim-linux-x86_64/bin:$PATH"

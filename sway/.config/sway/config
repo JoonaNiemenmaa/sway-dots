@@ -33,17 +33,14 @@ exec_always {
 	gsettings set org.gnome.desktop.interface icon-theme "Tokyonight-Dark"
 
 	gsettings set org.gnome.desktop.interface font-name "Cantarell"
-	gsettings set org.gnome.desktop.interface monospace-font-name "JetBrains Mono Nerd Font"
+	gsettings set org.gnome.desktop.interface monospace-font-name "Lilex Nerd Font"
 
 	gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-
-	# This makes it so that nemo uses alacritty as the terminal
-	gsettings set org.cinnamon.desktop.default-applications.terminal exec $term
 }
 
 ### Output configuration
 
-exec_always swaybg -m fill -i ~/dotfiles/wallpapers/snowytrees_wallpaper.jpg
+exec_always swaybg --mode fill --color 1a1b26 -i ~/dotfiles/wallpapers/sunset_wallpaper.jpg
 
 output eDP-1 {
 	resolution 1920x1080@60.056Hz
@@ -99,7 +96,6 @@ bindsym $mod+f exec $files
 bindsym $mod+s exec $screenshot
 
 bindsym $mod+shift+x exec swaylock
-bindsym $mod+n exec swaync-client -t
 
 # Kill focused window
 bindsym $mod+Shift+q kill
@@ -246,18 +242,17 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 # Special key to take a screenshot with grim
 bindsym Print exec grim
 
-font JetBrains Mono Nerd Font 12
+font Lilix Nerd Font 12
 
-default_border pixel 1
-#gaps inner 4
-
+default_border pixel 2
+gaps inner 4
 
 # Window decorations
 
 # Documentation describes these options like this
 # client.<class> <border> <background> <text> [<indicator> [<child_border>]]
-client.focused		#2ac3de		#2ac3de		#c0caf5		#f7768e
-client.unfocused	#414868		#414868		#c0caf5		#f7768e
+client.focused		#2ac3de		#2ac3de		#c0caf5
+client.unfocused	#414868		#414868		#c0caf5
 
 bar swaybar_command waybar
 
