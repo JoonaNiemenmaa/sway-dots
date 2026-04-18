@@ -43,7 +43,7 @@ exec_always {
 exec_always swaybg --mode fill --color 1a1b26 -i ~/dotfiles/wallpapers/sunset_wallpaper.jpg
 
 output eDP-1 {
-	resolution 1920x1080@60.056Hz
+	resolution 1920x1080@60Hz
 	position 0,0
 }
 
@@ -71,10 +71,10 @@ exec swayidle -w \
 # Example configuration:
 #
 input type:touchpad {
-  dwt enabled
-  tap enabled
-  natural_scroll enabled
-  middle_emulation enabled
+	dwt enabled
+	tap enabled
+	natural_scroll enabled
+	middle_emulation enabled
 }
 
 input type:keyboard {
@@ -245,7 +245,7 @@ bindsym Print exec grim
 font Lilix Nerd Font 12
 
 default_border pixel 2
-gaps inner 4
+#gaps inner 4
 
 # Window decorations
 

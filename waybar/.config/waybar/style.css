@@ -40,6 +40,10 @@ tooltip label {
     padding: 0 8px;
 }
 
+#window {
+	color: @fg;
+}
+
 #workspaces button {
     color: @bright_black;
 
@@ -63,8 +67,8 @@ tooltip label {
 #pulseaudio,
 #backlight {
     font-weight: 500;
-    margin: 2px 4px 0px 4px;
-    padding: 4px 6px;
+    margin: 2px 2px 2px 2px;
+    padding: 4px 4px;
 
     background: @black;
 }
@@ -75,46 +79,37 @@ tooltip label {
 
 #idle_inhibitor.deactivated {
     color: @bright_black;
-    border-bottom: 2 solid @bright_black;
 }
 
 #idle_inhibitor.activated {
     color: @bright_white;
-    border-bottom: 2 solid @bright_white;
 }
 
 #mode {
     color: @white;
-    border-bottom: 2 solid @white;
 }
 
 #clock {
     color: @blue;
-    border-bottom: 2 solid @blue;
 }
 
 #pulseaudio {
     color: @yellow;
-    border-bottom: 2 solid @yellow;
 }
 
 #pulseaudio.muted {
     color: @red;
-    border-bottom: 2 solid @red;
 }
 
 #backlight {
     color: @bright_white;
-    border-bottom: 2 solid @bright_white;
 }
 
 #battery {
     color: @cyan;
-    border-bottom: 2 solid @cyan;
 }
 
 #battery.charging,
 #battery.full {
     color: @green;
-    border-bottom: 2 solid @green;
 }
