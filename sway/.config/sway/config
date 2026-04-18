@@ -245,7 +245,7 @@ bindsym Print exec grim
 font Lilix Nerd Font 12
 
 default_border pixel 2
-#gaps inner 4
+gaps inner 4
 
 # Window decorations
 
