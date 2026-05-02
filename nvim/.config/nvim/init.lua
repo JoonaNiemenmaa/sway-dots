@@ -79,12 +79,6 @@ vim.api.nvim_create_autocmd('UIEnter', {
 	end,
 })
 
-vim.api.nvim_create_autocmd('BufWrite', {
-	callback = function()
-		vim.lsp.buf.format()
-	end,
-})
-
 -- USER COMMANDS: DEFINE CUSTOM COMMANDS
 --
 -- See `:h nvim_create_user_command()` and `:h user-commands`
@@ -101,12 +95,6 @@ end, { desc = 'Print the git blame for the current line' })
 vim.pack.add({
 	-- colorschemes
 	"https://github.com/folke/tokyonight.nvim",
-	"https://github.com/rebelot/kanagawa.nvim",
-	"https://github.com/sainnhe/gruvbox-material",
-	"https://github.com/kdheepak/monochrome.nvim",
-	"https://github.com/vague-theme/vague.nvim",
-	"https://github.com/bluz71/vim-moonfly-colors",
-	"https://github.com/catppuccin/nvim",
 
 	"https://github.com/neovim/nvim-lspconfig",
 	"https://github.com/ibhagwan/fzf-lua",
@@ -124,13 +112,32 @@ vim.cmd("colorscheme tokyonight-night")
 
 -- Enable LSPs
 
-vim.lsp.enable("ccls")
-vim.lsp.enable("zls")
-vim.lsp.enable("ts_ls")
-vim.lsp.enable("jsonls")
-vim.lsp.enable("html")
-
-vim.diagnostic.config({
-	virtual_text = true
+vim.lsp.enable({
+	"ccls",
+	"zls",
+	"ts_ls",
+	"jsonls",
+	"html",
 })
 
+  --vim.diagnostic.config({
+  --	virtual_text = true
+  --})
+
+vim.api.nvim_create_autocmd('LspAttach', {
+	callback = function(environment)
+		local client = assert(vim.lsp.get_client_by_id(environment.data.client_id))
+
+		vim.keymap.set({ "n" }, "<leader>d", function() vim.diagnostic.open_float() end)
+
+		if not client:supports_method('textDocument/willSaveWaitUntil')
+			and client:supports_method('textDocument/formatting') then
+			vim.api.nvim_create_autocmd('BufWrite', {
+				buffer = environment.buf,
+				callback = function()
+					vim.lsp.buf.format({ bufnr = environment.buf, id = client.id, timeout_ms = 1000 })
+				end,
+			})
+		end
+	end
+})
