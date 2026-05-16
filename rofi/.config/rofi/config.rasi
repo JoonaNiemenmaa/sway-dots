@@ -1,0 +1,12 @@
+configuration {
+	modes: [ combi ];
+	combi-modes: [ window, drun ];
+}
+
+@theme "default"
+@import "theme.rasinc"
+
+* {
+	font: "Lilex Nerd Font 12";
+}
+

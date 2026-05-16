@@ -4,6 +4,10 @@
       "rev": "8d723bac4a9ac46adfdf99d42155286977aac72a",
       "src": "https://github.com/kepano/flexoki"
     },
+    "flexoki-neovim": {
+      "rev": "c3e2251e813d29d885a7cbbe9808a7af234d845d",
+      "src": "https://github.com/kepano/flexoki-neovim"
+    },
     "fzf-lua": {
       "rev": "9f0432fdd7825ab163520045831a40b6df82ea28",
       "src": "https://github.com/ibhagwan/fzf-lua"
@@ -12,9 +16,25 @@
       "rev": "afb275d8e6dc379762d122bd24e1773fc057abf3",
       "src": "https://github.com/sainnhe/gruvbox-material"
     },
+    "gruvbox.nvim": {
+      "rev": "154eb5ff5b96d0641307113fa385eaf0d36d9796",
+      "src": "https://github.com/ellisonleao/gruvbox.nvim"
+    },
+    "kanagawa.nvim": {
+      "rev": "bb85e4bfc8d89b0e62c8fa53ccdd13d12e2f77b3",
+      "src": "https://github.com/rebelot/kanagawa.nvim"
+    },
     "monochrome.nvim": {
       "rev": "2de78d9688ea4a177bcd9be554ab9192337d35ff",
       "src": "https://github.com/kdheepak/monochrome.nvim"
+    },
+    "neovim-ayu": {
+      "rev": "e5a9f0fa2918d6b5f57c21b3ac014314ee5e41c8",
+      "src": "https://github.com/shatur/neovim-ayu"
+    },
+    "nord.nvim": {
+      "rev": "80c1e5321505aeb22b7a9f23eb82f1e193c12470",
+      "src": "https://github.com/shaunsingh/nord.nvim"
     },
     "nordic.nvim": {
       "rev": "9f757428264ef1fcd1703e17702d3a28f307a2f7",

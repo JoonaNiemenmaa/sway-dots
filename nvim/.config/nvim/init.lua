@@ -1,11 +1,8 @@
 -- comment
--- Set <space> as the leader key See `:h mapleader`
--- NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
+-- Set <space> as the leader key See `:h mapleader` NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 -- OPTIONS
--- See `:h vim.o`
--- NOTE: You can change these options as you wish!
--- For more options, you can see `:h option-list`
+-- See `:h vim.o` NOTE: You can change these options as you wish! For more options, you can see `:h option-list`
 -- To see documentation for an option, you can use `:h 'optionname'`, for example `:h 'number'` (Note the single quotes)
 
 vim.opt.shiftwidth = 4         -- changes indentation length
@@ -95,6 +92,13 @@ end, { desc = 'Print the git blame for the current line' })
 vim.pack.add({
 	-- colorschemes
 	"https://github.com/folke/tokyonight.nvim",
+	"https://github.com/shaunsingh/nord.nvim",
+	"https://github.com/vague-theme/vague.nvim",
+	"https://github.com/kepano/flexoki-neovim",
+	"https://github.com/kdheepak/monochrome.nvim",
+	"https://github.com/shatur/neovim-ayu",
+	"https://github.com/ellisonleao/gruvbox.nvim",
+	"https://github.com/rebelot/kanagawa.nvim",
 
 	"https://github.com/neovim/nvim-lspconfig",
 	"https://github.com/ibhagwan/fzf-lua",
@@ -107,7 +111,7 @@ require("fzf-lua")
 vim.keymap.set({ "n" }, "<leader>f", function() FzfLua.files() end)
 vim.keymap.set({ "n" }, "<leader>b", function() FzfLua.buffers() end)
 
-vim.cmd("colorscheme tokyonight-night")
+vim.cmd("colorscheme kanagawa")
 
 
 -- Enable LSPs
@@ -118,6 +122,7 @@ vim.lsp.enable({
 	"ts_ls",
 	"jsonls",
 	"html",
+	"pylsp",
 })
 
   --vim.diagnostic.config({
@@ -125,19 +130,21 @@ vim.lsp.enable({
   --})
 
 vim.api.nvim_create_autocmd('LspAttach', {
-	callback = function(environment)
-		local client = assert(vim.lsp.get_client_by_id(environment.data.client_id))
+	group = vim.api.nvim_create_augroup("my.lsp", {}),
+	callback = function(env)
+		local client = assert(vim.lsp.get_client_by_id(env.data.client_id))
 
 		vim.keymap.set({ "n" }, "<leader>d", function() vim.diagnostic.open_float() end)
 
-		if not client:supports_method('textDocument/willSaveWaitUntil')
-			and client:supports_method('textDocument/formatting') then
-			vim.api.nvim_create_autocmd('BufWrite', {
-				buffer = environment.buf,
+		if client:supports_method('textDocument/formatting') then
+			vim.api.nvim_create_autocmd('BufWritePre', {
+				group = vim.api.nvim_create_augroup("my.lsp", {clear=false}),
+				buffer = env.buf,
 				callback = function()
-					vim.lsp.buf.format({ bufnr = environment.buf, id = client.id, timeout_ms = 1000 })
+					vim.lsp.buf.format({ bufnr = env.buf, id = client.id, timeout_ms = 1000 })
 				end,
 			})
 		end
 	end
 })
+
