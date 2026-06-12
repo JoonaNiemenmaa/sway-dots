@@ -1,12 +1,13 @@
 configuration {
-	modes: [ combi ];
-	combi-modes: [ window, drun ];
+    modes: [ combi ];
+    combi-modes: [ drun ];
 }
 
 @theme "default"
-@import "theme.rasinc"
 
-* {
-	font: "Lilex Nerd Font 12";
+entry {
+    placeholder: "Type here";
+    cursor: pointer;
 }
+
 

@@ -1,5 +1,17 @@
 {
   "plugins": {
+    "blink.cmp": {
+      "rev": "b02ac65634bdb8af2dcc4eb6c807c060e1e15ae6",
+      "src": "https://github.com/saghen/blink.cmp"
+    },
+    "blink.lib": {
+      "rev": "b127d48bf8e9ac9cf41f6e0fbead317503f76558",
+      "src": "https://github.com/saghen/blink.lib"
+    },
+    "everforest-nvim": {
+      "rev": "d235ca0aa6a29546e661a020e2618612acbbffbe",
+      "src": "https://github.com/neanias/everforest-nvim"
+    },
     "flexoki": {
       "rev": "8d723bac4a9ac46adfdf99d42155286977aac72a",
       "src": "https://github.com/kepano/flexoki"
@@ -11,6 +23,10 @@
     "fzf-lua": {
       "rev": "9f0432fdd7825ab163520045831a40b6df82ea28",
       "src": "https://github.com/ibhagwan/fzf-lua"
+    },
+    "gitsigns.nvim": {
+      "rev": "25050e4ed39e628282831d4cbecb1850454ce915",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "gruvbox-material": {
       "rev": "afb275d8e6dc379762d122bd24e1773fc057abf3",
@@ -63,6 +79,10 @@
     "vague.nvim": {
       "rev": "8751181a1aa431b4e8983b0a183afef5cbc08381",
       "src": "https://github.com/vague-theme/vague.nvim"
+    },
+    "vim-fugitive": {
+      "rev": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",
+      "src": "https://github.com/tpope/vim-fugitive"
     },
     "vim-moonfly-colors": {
       "rev": "43d8eb9dd2a1154dd8259ee3ce37cbbdb28c405c",
