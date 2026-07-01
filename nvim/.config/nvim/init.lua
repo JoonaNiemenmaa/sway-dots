@@ -1,6 +1,6 @@
 -- comment
 -- Set <space> as the leader key See `:h mapleader` NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
-vim.g.mapleader = ' '
+vim.g.mapleader = " "
 -- OPTIONS
 -- See `:h vim.o` NOTE: You can change these options as you wish! For more options, you can see `:h option-list`
 -- To see documentation for an option, you can use `:h 'optionname'`, for example `:h 'number'` (Note the single quotes)
@@ -96,6 +96,7 @@ vim.pack.add({
     "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/ibhagwan/fzf-lua",
     "https://github.com/lewis6991/gitsigns.nvim",
+    "https://github.com/nvim-lualine/lualine.nvim",
     "https://github.com/tpope/vim-fugitive",
     "https://github.com/saghen/blink.cmp",
     "https://github.com/saghen/blink.lib",
@@ -113,6 +114,9 @@ vim.keymap.set({ "n" }, "<leader>b", function() FzfLua.buffers() end)
 
 vim.cmd("colorscheme kanagawa")
 
+require('lualine').setup({
+    options = { theme = "auto", section_separators = "", component_separators = "" }
+})
 
 -- Enable LSPs
 
