@@ -11,7 +11,7 @@ set $right l
 # Preferred programs
 set $term alacritty
 set $menu tofi-drun
-set $sysmenu rofi -show sysmenu -modes "sysmenu:$HOME/.config/sway/sysmenu.sh"
+set $sysmenu $HOME/.config/sway/sysmenu.sh
 set $browser flatpak run app.zen_browser.zen
 # set $browser firefox
 set $editor zed

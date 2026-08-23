@@ -1,28 +1,23 @@
 #!/bin/bash
+options="Lock
+Poweroff
+Reboot
+Suspend
+Logout"
+action=$(echo "$options" | tofi --placeholder-text "Select action")
 
-case "$@" in
-	Suspend)
-		systemctl suspend;
-		exit 0;
-		;;
-	Reboot) 
-		systemctl reboot;
-		exit 0;
-		;;
-	Poweroff)
-		systemctl poweroff;
-		exit 0;
-		;;
-	Logout)
-		swaymsg exit;
-		exit 0;
-		;;
-	Close) exit 0;;
-esac
+[ -z "$action" ] && exit
 
-echo "Suspend"
-echo "Reboot"
-echo "Poweroff"
-echo "Logout"
-echo "Close"
+confirm=$(echo "Yes
+No" | tofi --placeholder-text "Confirm $action?")
+
+if [ "$confirm" = "Yes" ]; then
+    case "$action" in
+        Lock) swaylock -f ;;
+        Poweroff) systemctl poweroff ;;
+        Reboot) systemctl reboot ;;
+        Suspend) systemctl suspend ;;
+        Logout) swaymsg exit ;;
+    esac
+fi
 
