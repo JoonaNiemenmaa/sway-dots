@@ -7,6 +7,4 @@ opacity = 0.9
 #padding = { x = 4, y = 4 }
 
 [general]
-import = [
-  "~/.config/alacritty/kanagawa.toml"
-]
+import = [ "vague.toml" ]

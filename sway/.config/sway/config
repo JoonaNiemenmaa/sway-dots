@@ -10,10 +10,11 @@ set $right l
 
 # Preferred programs
 set $term alacritty
-set $menu rofi -show combi
+set $menu tofi-drun
 set $sysmenu rofi -show sysmenu -modes "sysmenu:$HOME/.config/sway/sysmenu.sh"
 set $browser flatpak run app.zen_browser.zen
-set $editor zeditor
+# set $browser firefox
+set $editor zed
 set $files nemo
 set $screenshot grim -g "$(slurp)" - | swappy -f -
 set $polkit_agent /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
@@ -24,26 +25,29 @@ exec $polkit_agent
 exec nm-applet
 exec blueman-applet
 
+exec flatpak run dev.vencord.Vesktop -m
+exec steam -silent
+
 # GTK and Cursor Themes
 
 # This is needed to change the cursor theme
 seat seat0 xcursor_theme Bibata-Modern-Classic 24
 
-exec_always {
-    gsettings set org.gnome.desktop.interface gtk-theme "Kanagawa-B-MB-Dark"
-    gsettings set org.gnome.desktop.interface icon-theme "Kanagawa"
- 
-    gsettings set org.gnome.desktop.interface font-name "Cantarell"
-    gsettings set org.gnome.desktop.interface monospace-font-name "Lilex Nerd Font"
- 
-    gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-}
+#   exec_always {
+#       gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-Dark"
+#       gsettings set org.gnome.desktop.interface icon-theme "Kanagawa"
+#
+#       gsettings set org.gnome.desktop.interface font-name "Cantarell"
+#       gsettings set org.gnome.desktop.interface monospace-font-name "Lilex Nerd Font"
+#
+#       gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+#   }
 
 for_window [app_id="blueman-manager"] floating enable
 
 ### Output configuration
 
-exec_always swaybg --mode fill --color 1a1b26 -i ~/dotfiles/wallpapers/flower_wallpaper.png
+exec_always swaybg --mode fill --color 141415 -i ~/dotfiles/wallpapers/debian_wallpaper.png
 
 output eDP-1 {
     resolution 1920x1080@60Hz
@@ -255,8 +259,8 @@ hide_edge_borders smart
 
 # Documentation describes these options like this
 # client.<class> <border> <background> <text> [<indicator> [<child_border>]]
-client.focused		#956fb8		#956fb8		#1f1f28		#956fb8
-client.unfocused	#16161d		#16161d		#c0caf5		#16161d
+client.focused		#cdcdcd		#cdcdcd		#141415		#cdcdcd
+client.unfocused	#141415		#141415		#cdcdcd		#141415
 
 bar swaybar_command waybar
 

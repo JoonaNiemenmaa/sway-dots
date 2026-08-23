@@ -5,15 +5,13 @@ vim.g.mapleader = " "
 -- See `:h vim.o` NOTE: You can change these options as you wish! For more options, you can see `:h option-list`
 -- To see documentation for an option, you can use `:h 'optionname'`, for example `:h 'number'` (Note the single quotes)
 
+vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.shiftwidth = 4         -- changes indentation length vim.opt.tabstop = 4            -- changes the length of tab
 vim.opt.tabstop = 4
 vim.opt.expandtab = true
 
-vim.opt.fileencoding = "utf-8" -- makes the file encoding utf-8 by default
-vim.opt.relativenumber = false  -- a setting for relative line numbers
-vim.opt.number = true          -- line numbers
-vim.opt.splitbelow = true      -- place any horizontal splits on the bottom of the screen
-vim.opt.splitright = true      -- same as above but for vertical splits
+vim.opt.fileencoding = "utf-8" -- makes the file encoding utf-8 by default vim.opt.relativenumber = false  -- a setting for relative line numbers vim.opt.number = true          -- line numbers vim.opt.splitbelow = true      -- place any horizontal splits on the bottom of the screen vim.opt.splitright = true      -- same as above but for vertical splits
 vim.opt.wrap = false           -- always show lines as one long pötkylä
 vim.opt.undofile = true        -- allows nvim to create an 'undofile' which stores undo history so that it can persist through closing and reopening a file
 vim.opt.swapfile = false       -- disables the creation of swap-files
@@ -24,7 +22,8 @@ vim.opt.ignorecase = false     -- Pretty self explanatory
 vim.opt.title = true           -- Display extra information in window title
 vim.opt.termguicolors = true   -- Increases the color range available for the terminal
 vim.opt.wrapscan = true        -- searches wrap around the file
-vim.opt.list = false           -- Show <tab> and trailing spaces.
+-- vim.opt.list = true           -- Show <tab> and trailing spaces.   
+-- vim.opt.listchars = "tab:| "
 
 -- If performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s). See `:h 'confirm'`
@@ -65,7 +64,7 @@ vim.keymap.set({ 'n' }, '<A-l>', '<C-w>l')
 vim.api.nvim_create_autocmd('TextYankPost', {
     desc = 'Highlight when yanking (copying) text',
     callback = function()
-	vim.hl.on_yank()
+    vim.hl.on_yank()
     end,
 })
 
@@ -78,54 +77,27 @@ vim.api.nvim_create_autocmd('UIEnter', {
     end,
 })
 
--- USER COMMANDS: DEFINE CUSTOM COMMANDS
---
--- See `:h nvim_create_user_command()` and `:h user-commands`
-
--- Create a command `:GitBlameLine` that print the git blame for the current line
---  vim.api.nvim_create_user_command('GitBlameLine', function()
---      local line_number = vim.fn.line('.') -- Get the current line number. See `:h line()`
---      local filename = vim.api.nvim_buf_get_name(0)
---      print(vim.system({ 'git', 'blame', '-L', line_number .. ',+1', filename }):wait().stdout)
---  end, { desc = 'Print the git blame for the current line' })
-
 -- PLUGINS
 
 vim.pack.add({
-    "https://github.com/rebelot/kanagawa.nvim",
+    "https://github.com/vague-theme/vague.nvim",
     "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/ibhagwan/fzf-lua",
-    "https://github.com/lewis6991/gitsigns.nvim",
-    "https://github.com/nvim-lualine/lualine.nvim",
     "https://github.com/tpope/vim-fugitive",
-    "https://github.com/saghen/blink.cmp",
-    "https://github.com/saghen/blink.lib",
 })
 
 require("fzf-lua")
-
-local cmp = require('blink.cmp')
-cmp.build():pwait()
-cmp.setup()
 
 -- fzf-lua keybindings
 vim.keymap.set({ "n" }, "<leader>f", function() FzfLua.files() end)
 vim.keymap.set({ "n" }, "<leader>b", function() FzfLua.buffers() end)
 
-vim.cmd("colorscheme kanagawa")
-
-require('lualine').setup({
-    options = { theme = "auto", section_separators = "", component_separators = "" }
-})
+vim.cmd("colorscheme vague")
 
 -- Enable LSPs
 
 vim.lsp.enable({
     "ccls",
-    "zls",
-    "ts_ls",
-    "jsonls",
-    "html",
     "pylsp",
 })
 

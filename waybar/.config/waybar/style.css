@@ -1,38 +1,67 @@
-@define-color bg 			#1f1f28;
-@define-color fg 			#dcd7ba;
+@define-color bg 			    #141415;
+@define-color fg 			    #cdcdcd;
 
-@define-color black			#16161d;
-@define-color red			#c34043;
-@define-color green			#76946a;
-@define-color yellow			#c8a36e;
-@define-color blue			#7e9cd8;
-@define-color magenta			#957fb8;
-@define-color cyan			#6a9589;
-@define-color white 			#c8c093;
+@define-color black			    #252530;
+@define-color red			    #d8647e;
+@define-color green			    #7fa563;
+@define-color yellow			#f3be7c;
+@define-color blue			    #6e94b2;
+@define-color magenta			#bb9dbd;
+@define-color cyan			    #aeaed1;
+@define-color white 			#cdcdcd;
 
-@define-color bright_black 		#727169;
-@define-color bright_red 		#e82424;
-@define-color bright_green 		#98bb6c;
-@define-color bright_yellow		#e6c384;
-@define-color bright_blue 		#7fb4ca;
-@define-color bright_magenta 		#938aa9;
-@define-color bright_cyan 		#7aa89f;
-@define-color bright_white 		#dcd7ba;
+@define-color bright_black 		#606079;
+@define-color bright_red 		#e08398;
+@define-color bright_green 		#99b782;
+@define-color bright_yellow		#f5cb96;
+@define-color bright_blue 		#8ba9c1;
+@define-color bright_magenta    #c9b1ca;
+@define-color bright_cyan 		#bebeda;
+@define-color bright_white 		#d7d7d7;
 
 * {
-    border: none;
-    border-radius: 0;
     font-family: Lilex Nerd Font;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: bold;
+
+    min-height: 20px;
+    border-radius: 5px;
 }
 
 window#waybar {
-    background: @black;
+    background: @bg;
+    border-radius: 0;
+}
+
+#workspaces {
+    margin: 4px 4px;
+    padding: 0 1px;
+    background-color: @black;
+}
+
+#workspaces button {
+    margin: 0px 0px;
+    padding: 0 4px;
+    background-color: transparent;
+    color: @white;
+    border-radius: 5px;
+    transition: 0.15s ease-in-out;
+}
+
+#workspaces button:hover {
+    color: @bg;
+    background: @bright_black;
+}
+
+#workspaces button.focused {
+  background-color: @fg;
+  color: @bg;
+  margin: 0px 0px;
+  padding: 0 4px;
 }
 
 tooltip {
-    background: @bg;
-    border: 2 solid @fg;
+    background: @black;
 }
 
 tooltip label {
@@ -44,37 +73,22 @@ tooltip label {
 	color: @fg;
 }
 
-#workspaces button {
-    color: @bright_black;
-
-    padding: 0;
-    margin: 0;
-
-    background: transparent;
-    font-weight: bold;
-}
-
-#workspaces button.focused {
-	color: @magenta;
-    border-bottom: solid 2px @magenta;
-}
-
 #tray,
 #idle_inhibitor,
 #mode,
 #clock,
 #battery,
 #pulseaudio,
-#backlight {
-    font-weight: 500;
-    margin: 2px 2px 2px 2px;
-    padding: 4px 4px;
-
-    background: @black;
+#backlight
+{
+    margin: 6px 6px;
+    padding: 2px 8px;
+    background-color: @black;
 }
 
 #tray {
-    color: @blue;
+    padding: 2px 6px;
+    background-color: @black;
 }
 
 #idle_inhibitor.deactivated {
@@ -85,12 +99,7 @@ tooltip label {
     color: @bright_white;
 }
 
-#mode {
-    color: @white;
-}
-
-#clock {
-    color: @blue;
+/* #clock {
 }
 
 #pulseaudio {
@@ -106,10 +115,10 @@ tooltip label {
 }
 
 #battery {
-    color: @cyan;
+    color: @blue;
 }
 
 #battery.charging,
 #battery.full {
     color: @green;
-}
+} */

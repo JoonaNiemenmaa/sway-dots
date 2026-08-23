@@ -1,83 +1,59 @@
 {
-	"layer": "top",
-	"position": "bottom",
-	"modules-left": [
-		"sway/workspaces",
-		"sway/mode"
-	],
-	"modules-center": [
-		"sway/window"
-	],
-	"modules-right": [
-		"tray",
-		"idle_inhibitor",
-		"pulseaudio",
-		"backlight",
-		"battery",
-		"clock"
-	],
-	"sway/workspaces": {
-		"disable-scroll": true
-	},
-	"sway/window": {
-		"tooltip": true,
-		"icon": false,
-		"icon-size": 16,
-		"max-length": 80
-	},
-	"idle_inhibitor": {
-		"format": "{icon} ",
-		"format-icons": {
-			"activated": "",
-			"deactivated": ""
-		}
-	},
-	"pulseaudio": {
-		"tooltip": true,
-		"format": "{icon}  {volume}%",
-		"format-muted": "  {volume}%",
-		"format-icons": [
-			"",
-			""
-		]
-	},
-	"backlight": {
-		"tooltip": false,
-		"format": "{icon} {percent}%",
-		"format-icons": [
-			"󰃜",
-			"󰃛",
-			"󰃚"
-		]
-	},
-	"battery": {
-		"tooltip": true,
-		"design-capacity": true,
-		"states": {
-			"warning": 30,
-			"critical": 10
-		},
-		"format": "{icon} {capacity}%",
-		/*"format-full": "{icon} FULL",*/
-		"format-icons": [
-			"󰁺",
-			"󰁻",
-			"󰁼",
-			"󰁽",
-			"󰁾",
-			"󰁿",
-			"󰂀",
-			"󰂁",
-			"󰂂",
-			"󰁹"
-		]
-	},
-	"clock": {
-		"tooltip": true,
-		"format": "  {:%H:%M %A}",
-		"tooltip-format": "{:%A %H:%M %d.%m.%Y}"
-	},
-	"tray": {
-		"spacing": 8
-	}
+  "layer": "top",
+  "position": "bottom",
+  "spacing": 0,
+  "height": 24,
+  "modules-left": ["sway/workspaces", "tray", "sway/window", "sway/mode"],
+  "modules-center": [ "clock" ],
+  "modules-right": [ "idle_inhibitor", "backlight", "pulseaudio", "battery" ],
+  "height": 24,
+  "spacing": 0,
+  "sway/workspaces": {
+    "disable-scroll": true
+  },
+  "sway/window": {
+    "tooltip": true,
+    "max-length": 40
+  },
+  "idle_inhibitor": {
+    "format": "{icon} ",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "pulseaudio": {
+    "tooltip": true,
+    "max-volume": 100,
+    "format": "VOL {volume}%",
+    "format-muted": "VOL MUTED {volume}%",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol"
+//    "format-muted": "  {volume}%",
+//    "format-icons": ["", ""]
+  },
+  "backlight": {
+    "tooltip": false,
+    "format": "BRT {percent}%",
+//    "format-icons": ["󰃜", "󰃛", "󰃚"],
+  },
+  "battery": {
+    "tooltip": true,
+    "design-capacity": false,
+    "states": {
+      "warning": 30,
+      "critical": 10,
+    },
+    "format": "BAT {capacity}%",
+//    "format-full": "󰁹 FULL",
+//    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+  },
+  "clock": {
+    "tooltip": true,
+    "format": "{:%A %H:%M}",
+    "tooltip-format": "{:%A %H:%M %d.%m.%Y}",
+  },
+  "tray": {
+    "spacing": 8,
+  },
 }

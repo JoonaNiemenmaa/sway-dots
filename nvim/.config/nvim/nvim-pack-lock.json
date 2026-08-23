@@ -1,40 +1,20 @@
 {
   "plugins": {
     "blink.cmp": {
-      "rev": "b02ac65634bdb8af2dcc4eb6c807c060e1e15ae6",
+      "rev": "bda905a4bf1b3edfa708b0be193b8c63d8620c96",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "blink.lib": {
-      "rev": "b127d48bf8e9ac9cf41f6e0fbead317503f76558",
+      "rev": "5876dd95deeb70aadbe9f1c0b7117a135061cdac",
       "src": "https://github.com/saghen/blink.lib"
     },
-    "everforest-nvim": {
-      "rev": "d235ca0aa6a29546e661a020e2618612acbbffbe",
-      "src": "https://github.com/neanias/everforest-nvim"
-    },
-    "flexoki": {
-      "rev": "8d723bac4a9ac46adfdf99d42155286977aac72a",
-      "src": "https://github.com/kepano/flexoki"
-    },
-    "flexoki-neovim": {
-      "rev": "c3e2251e813d29d885a7cbbe9808a7af234d845d",
-      "src": "https://github.com/kepano/flexoki-neovim"
-    },
     "fzf-lua": {
-      "rev": "9f0432fdd7825ab163520045831a40b6df82ea28",
+      "rev": "39da6060d53659acf3ec118200bc48721b29b8fd",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
-      "rev": "25050e4ed39e628282831d4cbecb1850454ce915",
+      "rev": "eb60cc7b94c46005237fd34170d76f3a089a90aa",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
-    },
-    "gruvbox-material": {
-      "rev": "afb275d8e6dc379762d122bd24e1773fc057abf3",
-      "src": "https://github.com/sainnhe/gruvbox-material"
-    },
-    "gruvbox.nvim": {
-      "rev": "154eb5ff5b96d0641307113fa385eaf0d36d9796",
-      "src": "https://github.com/ellisonleao/gruvbox.nvim"
     },
     "kanagawa.nvim": {
       "rev": "bb85e4bfc8d89b0e62c8fa53ccdd13d12e2f77b3",
@@ -44,53 +24,17 @@
       "rev": "221ce6b2d999187044529f49da6554a92f740a96",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
-    "monochrome.nvim": {
-      "rev": "2de78d9688ea4a177bcd9be554ab9192337d35ff",
-      "src": "https://github.com/kdheepak/monochrome.nvim"
-    },
-    "neovim-ayu": {
-      "rev": "e5a9f0fa2918d6b5f57c21b3ac014314ee5e41c8",
-      "src": "https://github.com/shatur/neovim-ayu"
-    },
-    "nord.nvim": {
-      "rev": "80c1e5321505aeb22b7a9f23eb82f1e193c12470",
-      "src": "https://github.com/shaunsingh/nord.nvim"
-    },
-    "nordic.nvim": {
-      "rev": "9f757428264ef1fcd1703e17702d3a28f307a2f7",
-      "src": "https://github.com/AlexvZyl/nordic.nvim"
-    },
-    "nvim": {
-      "rev": "426dbebe06b5c69fd846ceb17b42e12f890aedf1",
-      "src": "https://github.com/catppuccin/nvim"
-    },
     "nvim-lspconfig": {
-      "rev": "9ccd58a7949091c0cc2777d4e92a45a209c808c1",
+      "rev": "292f44408498103c47996ff5c18fd366293840d8",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
-    "nyoom.nvim": {
-      "rev": "f808500883ffc552b53a421139cc1915955759b7",
-      "src": "https://github.com/nyoom-engineering/nyoom.nvim"
-    },
-    "oxocarbon.nvim": {
-      "rev": "a7ba74849a00546a311f8c146320b433900393e7",
-      "src": "https://github.com/nyoom-engineering/oxocarbon.nvim"
-    },
-    "tokyonight.nvim": {
-      "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",
-      "src": "https://github.com/folke/tokyonight.nvim"
-    },
     "vague.nvim": {
-      "rev": "8751181a1aa431b4e8983b0a183afef5cbc08381",
+      "rev": "f9060fdaf7b20f68575d6f8214da6f1cf0c72825",
       "src": "https://github.com/vague-theme/vague.nvim"
     },
     "vim-fugitive": {
       "rev": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",
       "src": "https://github.com/tpope/vim-fugitive"
-    },
-    "vim-moonfly-colors": {
-      "rev": "43d8eb9dd2a1154dd8259ee3ce37cbbdb28c405c",
-      "src": "https://github.com/bluz71/vim-moonfly-colors"
     }
   }
 }
