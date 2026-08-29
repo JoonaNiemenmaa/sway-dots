@@ -26,7 +26,7 @@ exec nm-applet
 exec blueman-applet
 
 exec flatpak run dev.vencord.Vesktop -m
-exec steam -silent
+# exec steam -silent
 
 # GTK and Cursor Themes
 
@@ -47,7 +47,7 @@ for_window [app_id="blueman-manager"] floating enable
 
 ### Output configuration
 
-exec_always swaybg --mode fill --color 141415 -i ~/dotfiles/wallpapers/debian_wallpaper.png
+exec_always swaybg --mode fill --color 141415 -i ~/dotfiles/wallpapers/mountain_wallpaper.jpg
 
 output eDP-1 {
     resolution 1920x1080@60Hz
